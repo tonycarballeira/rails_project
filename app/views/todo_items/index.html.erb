@@ -1,12 +1,18 @@
 
 <h1>things to do</h1>
-<div>
+  <br>
+<div class="gridtable text-center">
+  
+<h2><%= link_to 'New Todo item', new_list_todo_item_path(@list) %></h2>
+  
+</div>
+
 <table class="gridtable text-center">
-  <thead>
+  
     <tr>
-      <h2>Backlog</h2>
+      <h2 class="gridtable text-center">Backlog</h2>
     </tr>
-  </thead>
+  
 
   <tbody>
     <% @list.todo_items.backlog.each do |todo_item| %>
@@ -23,7 +29,7 @@
 <table class="gridtable text-center">
   <thead>
     <tr>
-     <h2>Complete</h2>
+     <h2 class="gridtable text-center">Complete</h2>
     </tr>
   </thead>
 
@@ -44,7 +50,7 @@
 <table class="gridtable text-center">
   <thead>
     <tr>
-      <h2>Ready</h2>
+      <h2 class="gridtable text-center">Ready</h2>
     </tr>
   </thead>
 
@@ -65,7 +71,7 @@
 <table class="gridtable text-center">
   <thead>
     <tr>
-      <h2>In progress</h2>
+      <h2 class="gridtable text-center">In progress</h2>
     </tr>
   </thead>
 
@@ -83,10 +89,4 @@
     <% end %>
   </tbody>
 </table>
-<div class="text-center" id="color">
-<!--<%= submit_tag("Complete Todos", :class=>"btn btn-success") %>-->
 
-<br>
-
-<%= link_to 'New Todo item', new_list_todo_item_path(@list) %>
-</div>

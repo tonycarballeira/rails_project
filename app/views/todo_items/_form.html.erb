@@ -20,14 +20,13 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.number_field :state %>
+    <p>Backlog: 1, Ready: 2, In Progress: 3, Complete: 4 </p>
+    <%= f.number_field :state, in: 1..4 %>
   </div>
-  <div class="field">
-    <%= f.label :completed %><br>
-    <%= f.check_box(:completed) %>
-  </div>
+
 
 <% end %>
 </div>
