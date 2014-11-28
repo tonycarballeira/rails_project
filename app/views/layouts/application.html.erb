@@ -7,11 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!-- <div class="navbar">
-    <div class="navbar-inner">
-      <a class="brand" href="#">Todo List</a>
-    </div> -->
-  </div>
+	<% if current_user %>
+  		Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+	<% else %>
+  		<%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+<% end %>
 <%= yield %>
 
 </body>
