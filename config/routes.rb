@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :todo_items
+  resources :lists do
 
- 
+  resources :todo_items, only: [:index, :new, :create]  #nested views accessible through list urls
+end
+
+ root 'lists#index'
+
+ resources :todo_items, only: [:edit, :show, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

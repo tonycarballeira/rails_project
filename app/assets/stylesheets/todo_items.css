@@ -2,3 +2,73 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+#color{
+	background-color: white;
+	background-position: center;
+	background-size: 100px;
+	}
+
+*{
+	color:black;
+}
+
+body{
+	background-image: url(kit-cat-clocks.jpg);
+}
+
+#divvy{
+	margin-top: 200px;
+	background-color: white;
+	background-position: center;
+	background-size: 100px;
+}
+
+h1 {
+	background-color: gray;
+	width:500px;
+	position:center;
+	background-position: center;
+	height: 60px;
+	padding-top: 10px;
+	padding-left: 100px;
+	color:black;
+	margin: 0 auto;
+	/*margin-left: 350px;*/
+	/*margin-top: 200px;*/
+	margin-top: 200px;
+}
+
+
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: black;
+	border-collapse: collapse;
+	width:600px;
+	/*margin-left: 350px;*/
+	/*margin-top: 200px;*/
+	margin: 0 auto;
+	
+
+
+}
+table.gridtable th {
+	border-width: 0px;
+	padding: 8px;
+	border-style: solid;
+	border-color: black;
+	background-color: #dedede;
+
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: black;
+	background-color: #ffffff;
+}
+
+

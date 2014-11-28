@@ -1,6 +1,7 @@
-<%= form_for(@todo_item) do |f| %>
+<div class="text-center" id="color">
+<%= form_for([@list,@todo_item]) do |f| %>
   <% if @todo_item.errors.any? %>
-    <div id="error_explanation">
+    
       <h2><%= pluralize(@todo_item.errors.count, "error") %> prohibited this todo_item from being saved:</h2>
 
       <ul>
@@ -8,14 +9,21 @@
         <li><%= message %></li>
       <% end %>
       </ul>
-    </div>
+
   <% end %>
 
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+  <%= f.hidden_field :list_id, value: @list.id if @list %>
   <div class="actions">
     <%= f.submit %>
   </div>
+  <div class="field">
+    <%= f.label :completed %><br>
+    <%= f.check_box(:completed) %>
+  </div>
+
 <% end %>
+</div>

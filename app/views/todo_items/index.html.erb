@@ -1,25 +1,29 @@
-<h1>Listing todo_items</h1>
 
-<table>
+<h1>things to do</h1>
+<div>
+<table class="gridtable text-center">
   <thead>
     <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @todo_items.each do |todo_item| %>
-      <tr>
-        <td><%= todo_item.description %></td>
-        <td><%= link_to 'Show', todo_item %></td>
-        <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
-        <td><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% @list.todo_items.each do |todo_item| %>
+      <% unless todo_item.completed%>
+        <tr>
+          <!-- <td><%= todo_item.completed %></td> -->
+          <td><%= todo_item.description %></td>        
+          <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
+          <td><%= link_to 'Destroy', todo_item_path(todo_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
+<div class="text-center" id="color">
+<!--<%= submit_tag("Complete Todos", :class=>"btn btn-success") %>-->
 
 <br>
 
-<%= link_to 'New Todo item', new_todo_item_path %>
+<%= link_to 'New Todo item', new_list_todo_item_path(@list) %>
+</div>
