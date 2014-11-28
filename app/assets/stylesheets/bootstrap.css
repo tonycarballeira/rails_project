@@ -6169,3 +6169,8 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
+
+.top {
+  background-color: black;
+  color: blue;
+}
