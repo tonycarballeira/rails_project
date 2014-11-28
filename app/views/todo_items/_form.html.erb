@@ -21,6 +21,10 @@
     <%= f.submit %>
   </div>
   <div class="field">
+    <%= f.label :state %><br>
+    <%= f.number_field :state %>
+  </div>
+  <div class="field">
     <%= f.label :completed %><br>
     <%= f.check_box(:completed) %>
   </div>

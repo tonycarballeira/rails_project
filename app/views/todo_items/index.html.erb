@@ -4,19 +4,82 @@
 <table class="gridtable text-center">
   <thead>
     <tr>
+      <h2>Backlog</h2>
     </tr>
   </thead>
 
   <tbody>
-    <% @list.todo_items.each do |todo_item| %>
-      <% unless todo_item.completed%>
+    <% @list.todo_items.backlog.each do |todo_item| %>
         <tr>
-          <!-- <td><%= todo_item.completed %></td> -->
-          <td><%= todo_item.description %></td>        
+          
+          <td><%= todo_item.description %></td>
+          <td><%= todo_item.status %></td>        
           <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
           <td><%= link_to 'Destroy', todo_item_path(todo_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
-      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<table class="gridtable text-center">
+  <thead>
+    <tr>
+     <h2>Complete</h2>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @list.todo_items.complete.each do |todo_item| %>
+      
+        <tr>
+          <!-- <td><%= todo_item.completed %></td> -->
+          <td><%= todo_item.description %></td>
+          <td><%= todo_item.status %></td>        
+          <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
+          <td><%= link_to 'Destroy', todo_item_path(todo_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      
+    <% end %>
+  </tbody>
+</table>
+<table class="gridtable text-center">
+  <thead>
+    <tr>
+      <h2>Ready</h2>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @list.todo_items.ready.each do |todo_item| %>
+      
+        <tr>
+          <!-- <td><%= todo_item.completed %></td> -->
+          <td><%= todo_item.description %></td>
+          <td><%= todo_item.status %></td>        
+          <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
+          <td><%= link_to 'Destroy', todo_item_path(todo_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      
+    <% end %>
+  </tbody>
+</table>
+<table class="gridtable text-center">
+  <thead>
+    <tr>
+      <h2>In progress</h2>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @list.todo_items.in_progress.each do |todo_item| %>
+      
+        <tr>
+          <!-- <td><%= todo_item.completed %></td> -->
+          <td><%= todo_item.description %></td>
+          <td><%= todo_item.status %></td>        
+          <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
+          <td><%= link_to 'Destroy', todo_item_path(todo_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      
     <% end %>
   </tbody>
 </table>
