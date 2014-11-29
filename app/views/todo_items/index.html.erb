@@ -1,6 +1,20 @@
 
+<ul class="myMenu">
+  
+    <li><%= link_to "all your lists", lists_path %>
+      <ul>
+          <% @current_user.lists.each do |list| %>
+          <li><%= link_to "#{list.name}", list_todo_items_path(list) %></li>
+          <% end %>
+      </ul>      
+      
+    </li>
+</ul>
+
+
 <h1>things to do</h1>
   <br>
+  <style></style>
 <div class="gridtable text-center">
   
 <h2><%= link_to 'New Todo item', new_list_todo_item_path(@list) %></h2>
@@ -9,50 +23,54 @@
 
 <table class="gridtable text-center">
   
-    <tr>
-      <h2 class="gridtable text-center">Backlog</h2>
-    </tr>
-  
-
+    <%if @list.todo_items.backlog.any? %>
+  <%= render 'backlog' %>
+  <% end %>
+    
+      
   <tbody>
+    
     <% @list.todo_items.backlog.each do |todo_item| %>
         <tr>
           
           <td><%= todo_item.description %></td>
-          <td><%= todo_item.status %></td>        
+          <td><%= todo_item.status %></td>     
+          <td> Created <%= time_ago_in_words todo_item.created_at %> ago </td>        
+          <td> Updated <%= time_ago_in_words todo_item.updated_at %> ago </td>      
           <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
           <td><%= link_to 'Destroy', todo_item_path(todo_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
+    
   </tbody>
 </table>
 <table class="gridtable text-center">
-  <thead>
-    <tr>
-     <h2 class="gridtable text-center">Complete</h2>
-    </tr>
-  </thead>
-
+  <%if @list.todo_items.complete.any? %>
+  <%= render 'complete' %>
+  <% end %>
   <tbody>
+    
     <% @list.todo_items.complete.each do |todo_item| %>
       
         <tr>
           <!-- <td><%= todo_item.completed %></td> -->
           <td><%= todo_item.description %></td>
-          <td><%= todo_item.status %></td>        
+          <td><%= todo_item.status %></td>
+          <td> Created <%= time_ago_in_words todo_item.created_at %> ago </td>        
+          <td> Updated <%= time_ago_in_words todo_item.updated_at %> ago </td>        
           <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
           <td><%= link_to 'Destroy', todo_item_path(todo_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       
     <% end %>
+    
   </tbody>
 </table>
 <table class="gridtable text-center">
-  <thead>
-    <tr>
-      <h2 class="gridtable text-center">Ready</h2>
-    </tr>
-  </thead>
+  
+  <%if @list.todo_items.ready.any? %>
+  <%= render 'ready' %>
+  <% end %>
 
   <tbody>
     <% @list.todo_items.ready.each do |todo_item| %>
@@ -60,7 +78,9 @@
         <tr>
           <!-- <td><%= todo_item.completed %></td> -->
           <td><%= todo_item.description %></td>
-          <td><%= todo_item.status %></td>        
+          <td><%= todo_item.status %></td>    
+          <td> Created <%= time_ago_in_words todo_item.created_at %> ago </td>        
+          <td> Updated <%= time_ago_in_words todo_item.updated_at %> ago </td>       
           <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
           <td><%= link_to 'Destroy', todo_item_path(todo_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
@@ -69,11 +89,10 @@
   </tbody>
 </table>
 <table class="gridtable text-center">
-  <thead>
-    <tr>
-      <h2 class="gridtable text-center">In progress</h2>
-    </tr>
-  </thead>
+  
+  <%if @list.todo_items.in_progress.any? %>
+  <%= render 'progress' %>
+  <% end %>
 
   <tbody>
     <% @list.todo_items.in_progress.each do |todo_item| %>
@@ -81,7 +100,9 @@
         <tr>
           <!-- <td><%= todo_item.completed %></td> -->
           <td><%= todo_item.description %></td>
-          <td><%= todo_item.status %></td>        
+          <td><%= todo_item.status %></td>     
+          <td> Created <%= time_ago_in_words todo_item.created_at %> ago </td>        
+          <td> Updated <%= time_ago_in_words todo_item.updated_at %> ago </td>      
           <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
           <td><%= link_to 'Destroy', todo_item_path(todo_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
@@ -90,3 +111,18 @@
   </tbody>
 </table>
 
+<script>
+$(function(){
+  $('.myMenu > li').bind('mouseover', openSubMenu);
+    $('.myMenu > li').bind('mouseout', closeSubMenu);
+    
+    function openSubMenu() {
+      $(this).find('ul').css('visibility', 'visible');  
+    };
+    
+    function closeSubMenu() {
+      $(this).find('ul').css('visibility', 'hidden'); 
+    };    
+
+});
+</script>

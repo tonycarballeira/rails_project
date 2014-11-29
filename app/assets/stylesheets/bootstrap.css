@@ -6170,7 +6170,6 @@ a.badge:focus {
   position: fixed;
 }
 
-.top {
+.therow {
   background-color: black;
-  color: blue;
 }

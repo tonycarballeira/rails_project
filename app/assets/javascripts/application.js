@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+// $(document).ready(function() {
+	$(function(){
+	$('.myMenu > li').bind('mouseover', openSubMenu);
+		$('.myMenu > li').bind('mouseout', closeSubMenu);
+		
+		function openSubMenu() {
+			$(this).find('ul').css('visibility', 'visible');	
+		};
+		
+		function closeSubMenu() {
+			$(this).find('ul').css('visibility', 'hidden');	
+		};		
+
+});

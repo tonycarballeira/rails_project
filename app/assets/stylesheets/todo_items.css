@@ -25,7 +25,7 @@ body{
 }
 
 h1 {
-	background-color: gray;
+	background-color: blue;
 	width:500px;
 	position:center;
 	background-position: center;
@@ -71,7 +71,9 @@ table.gridtable td {
 	background-color: #ffffff;
 }
 
-
-.top {
+.therow {
 	background-color: black;
 }
+
+
+

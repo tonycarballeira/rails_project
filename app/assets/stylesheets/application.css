@@ -13,6 +13,97 @@
  *= require_tree .
  *= require_self
  */
-.top {
-	background-color: black;
+
+
+body > h2:nth-child(7){
+	
+	background-color: #18417F;
+}
+
+body > h2:nth-child(9){
+	background-color: #1C561B;
+}
+
+body > h2:nth-child(11){
+	background-color: #FF2A39;
+}
+
+body > h2:nth-child(13) {
+	background-color: #BFC0AE;
+}
+
+body > h1{
+	background-color: #FF2A39;
+	
+}
+
+body > div > h2{
+	background-color: #211C23;
+	color: black;
+
+}
+
+body > h2:nth-child(10){
+	background-color: #1C561B;
+}
+
+body > h2:nth-child(12) {
+	background-color: #FF2A39;
+}
+
+body > div > form {
+	margin-left: 340px;
+}
+
+body > form {
+	margin-left: 25px;
+}
+
+.myMenu {
+	margin:0;
+	padding:0;
+}
+
+.myMenu li {
+	list-style:none;
+	float:right;
+	font:12px Arial, Helvetica, sans-serif #111;
+	margin-right: 100px;
+}
+
+.myMenu li a:link, .myMenu li a:visited {
+	display:block;
+	text-decoration:none;
+	background-color:#09F;
+	padding: 0.5em 2em;
+	margin:0;
+	border-right: 1px solid #fff;
+	color:#111;
+}
+
+.myMenu li a:hover {
+	background-color:#0CF;	
+}
+
+/*style the sub menu*/
+.myMenu li ul {
+	position:absolute;
+	visibility:hidden;
+	border-top:1px solid #fff;
+	margin:0;
+	padding:0;
+}
+
+.myMenu li ul li {
+	display:inline;
+	float:none;
+}
+
+.myMenu li ul li a:link, .myMenu li ul li a:visited {
+	background-color:#09F;
+	width:auto;
+}
+
+.myMenu li ul li a:hover {
+	background-color:#0CF;	
 }
