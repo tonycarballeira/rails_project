@@ -15,13 +15,13 @@
 <h1>things to do</h1>
   <br>
   <style></style>
-<div class="gridtable text-center">
+<div class="gridtable">
   
-<h2><%= link_to 'New Todo item', new_list_todo_item_path(@list) %></h2>
+<h2><%= link_to 'new thing to do', new_list_todo_item_path(@list) %></h2>
   
 </div>
 
-<table class="gridtable text-center">
+<table class="gridtable">
   
     <%if @list.todo_items.backlog.any? %>
   <%= render 'backlog' %>
@@ -33,8 +33,8 @@
     <% @list.todo_items.backlog.each do |todo_item| %>
         <tr>
           
-          <td><%= todo_item.description %></td>
-          <td><%= todo_item.status %></td>     
+          <td><%= best_in_place todo_item, :description %></td>
+          <td><%= todo_item.status%></td>     
           <td> Created <%= time_ago_in_words todo_item.created_at %> ago </td>        
           <td> Updated <%= time_ago_in_words todo_item.updated_at %> ago </td>      
           <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
@@ -44,7 +44,7 @@
     
   </tbody>
 </table>
-<table class="gridtable text-center">
+<table class="gridtable">
   <%if @list.todo_items.complete.any? %>
   <%= render 'complete' %>
   <% end %>
@@ -54,7 +54,7 @@
       
         <tr>
           <!-- <td><%= todo_item.completed %></td> -->
-          <td><%= todo_item.description %></td>
+          <td><%= best_in_place todo_item, :description %></td>
           <td><%= todo_item.status %></td>
           <td> Created <%= time_ago_in_words todo_item.created_at %> ago </td>        
           <td> Updated <%= time_ago_in_words todo_item.updated_at %> ago </td>        
@@ -66,7 +66,7 @@
     
   </tbody>
 </table>
-<table class="gridtable text-center">
+<table class="gridtable">
   
   <%if @list.todo_items.ready.any? %>
   <%= render 'ready' %>
@@ -77,7 +77,7 @@
       
         <tr>
           <!-- <td><%= todo_item.completed %></td> -->
-          <td><%= todo_item.description %></td>
+          <td><%= best_in_place todo_item, :description %></td>
           <td><%= todo_item.status %></td>    
           <td> Created <%= time_ago_in_words todo_item.created_at %> ago </td>        
           <td> Updated <%= time_ago_in_words todo_item.updated_at %> ago </td>       
@@ -88,7 +88,7 @@
     <% end %>
   </tbody>
 </table>
-<table class="gridtable text-center">
+<table class="gridtable">
   
   <%if @list.todo_items.in_progress.any? %>
   <%= render 'progress' %>
@@ -99,7 +99,7 @@
       
         <tr>
           <!-- <td><%= todo_item.completed %></td> -->
-          <td><%= todo_item.description %></td>
+          <td><%= best_in_place todo_item, :description %></td>
           <td><%= todo_item.status %></td>     
           <td> Created <%= time_ago_in_words todo_item.created_at %> ago </td>        
           <td> Updated <%= time_ago_in_words todo_item.updated_at %> ago </td>      

@@ -107,3 +107,34 @@ body > form {
 .myMenu li ul li a:hover {
 	background-color:#0CF;	
 }
+
+.purr {
+  position: fixed;
+  top: 30px;
+  right: 100px;
+  width: 250px;
+  padding: 20px;
+  background-color: #FCC;
+  border: solid 2px #C66;
+  &:first-letter { text-transform: uppercase; }
+}
+
+body > table:nth-child(8) {
+	width: 100%;
+}
+
+body > table {
+	width: 100%;
+}
+
+#new_list_link {
+	margin-left: 550px;
+}
+
+body > div > h2 > a{
+	color: #B5B39A;
+}
+
+body > a{
+	color:#FE2E3E;
+}

@@ -47,7 +47,7 @@ table.gridtable {
 	border-width: 1px;
 	border-color: black;
 	border-collapse: collapse;
-	width:600px;
+	width:100%;
 	/*margin-left: 350px;*/
 	/*margin-top: 200px;*/
 	margin: 0 auto;
@@ -71,9 +71,12 @@ table.gridtable td {
 	background-color: #ffffff;
 }
 
-.therow {
+
+.top {
 	background-color: black;
 }
 
-
+body > div > h2 > a{
+	margin-left: 530px;
+}
 

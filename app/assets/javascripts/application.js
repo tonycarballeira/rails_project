@@ -12,19 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.purr
 //= require turbolinks
-//= require_tree .
-// $(document).ready(function() {
-	$(function(){
-	$('.myMenu > li').bind('mouseover', openSubMenu);
-		$('.myMenu > li').bind('mouseout', closeSubMenu);
-		
-		function openSubMenu() {
-			$(this).find('ul').css('visibility', 'visible');	
-		};
-		
-		function closeSubMenu() {
-			$(this).find('ul').css('visibility', 'hidden');	
-		};		
+//= require best_in_place
+//= require best_in_place.purr
 
-});
+//= require_tree .

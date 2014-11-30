@@ -2,6 +2,7 @@ class TodoItemsController < ApplicationController
   before_action :set_todo_item, only: [:show, :edit, :update, :destroy]
   before_action :set_list, only: [:index, :new, :create]
   before_filter :authorize
+  respond_to :html, :json
 
   # GET /todo_items
   # GET /todo_items.json
@@ -42,6 +43,7 @@ class TodoItemsController < ApplicationController
   # PATCH/PUT /todo_items/1
   # PATCH/PUT /todo_items/1.json
   def update
+    
     respond_to do |format|
       if @todo_item.update(todo_item_params)
         format.html { redirect_to @todo_item, notice: 'Todo item was successfully updated.' }
